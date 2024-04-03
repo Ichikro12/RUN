@@ -4,7 +4,7 @@ import streamlit as st
 st.write('Click to start innovarium module')
 if st.button('Start'):
     # Run Streamlit app
-    process = subprocess.Popen(['streamlit', 'run', 'main.py'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    process = subprocess.Popen(['streamlit', 'run', '/iitbombay-main/iitbombay-main/pythonproject1/main.py'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
     # Wait for Streamlit app to start
     process.stdout.readline()
