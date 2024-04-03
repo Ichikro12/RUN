@@ -1,13 +1,18 @@
 import subprocess
 import streamlit as st
 
-st.write('Click to start innovarium module')
+st.write('Enter the path of the Streamlit app and click to start:')
+input_value = st.text_input("Streamlit App Path") # Add a text input for the Streamlit app path
+
 if st.button('Start'):
-    # Run Streamlit app
-    process = subprocess.Popen(['streamlit', 'run', '/iitbombay-main/iitbombay-main/pythonproject1/main.py'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    if input_value:
+        # Run Streamlit app with the provided path
+        process = subprocess.Popen(['streamlit', 'run', input_value], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-    # Wait for Streamlit app to start
-    process.stdout.readline()
+        # Wait for Streamlit app to start
+        process.stdout.readline()
 
-    # Wait for the Streamlit app to finish
-    process.wait()
+        # Wait for the Streamlit app to finish
+        process.wait()
+    else:
+        st.warning("Please provide a valid Streamlit app path.")
